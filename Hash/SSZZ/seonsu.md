@@ -1,3 +1,4 @@
+```
 import java.util.Arrays;
 
 class Solution {
@@ -37,3 +38,4 @@ class Solution {
 효율성: 33.3
 합계: 91.7 / 100.0
 */
+```
