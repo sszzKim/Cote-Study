@@ -22,7 +22,18 @@ class Solution {
             if(!participant[i].equals(completion[i])) break;
         }
         return participant[i];
+        
+        채점 결과
+        정확성: 58.3
+        효율성: 33.3
+        합계: 91.7 / 100.0
+        
         */
         
     }
 }
+/*
+정확성: 58.3
+효율성: 33.3
+합계: 91.7 / 100.0
+*/
