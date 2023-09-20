@@ -6,9 +6,6 @@ import java.util.*;
 class PhoneNumber {
     public boolean solution(String[] phone_book) {
         
-        //1.정렬
-        Arrays.sort(phone_book);
-
         //2. HashMap 생성
         Map<String, Integer> map = new HashMap<>();
         for(String s :phone_book) map.put(s,0);
