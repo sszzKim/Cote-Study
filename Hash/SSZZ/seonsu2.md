@@ -1,3 +1,6 @@
+<a href="https://www.notion.so/Cote-HashMap-54f61a71ca2347619628ef094c0cd53d?pvs=4" target="_blank"> https://www.notion.so/Cote-HashMap-54f61a71ca2347619628ef094c0cd53d?pvs=4 </a>
+
+```
 import java.util.HashMap;
 
 class Solution {
@@ -44,3 +47,4 @@ class Solution {
 효율성: 41.7
 합계: 100.0 / 100.0
 */
+```
