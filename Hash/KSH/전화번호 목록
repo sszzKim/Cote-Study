@@ -2,10 +2,11 @@ import java.util.Arrays;
 
 class Solution {
     public boolean solution(String[] phoneBook) {
-        Arrays.sort(phoneBook);
+        Arrays.sort(phoneBook); // 정렬을 사용하여 비슷한 모양끼리 가까이 붙음
+                                 // { "442", "1234", "12", "123"} 이 sort를 한다면 {"12","123","1234", "442"} 로바뀜
 
-        for (int i = 0; i < phoneBook.length - 1; i++)
-            if (phoneBook[i + 1].startsWith(phoneBook[i]))
+        for (int i = 0; i < phoneBook.length - 1; i++)                    // for문을 통해 phoneBook 안에 있는 값을 부르고  
+     if (phoneBook[i + 1].startsWith(phoneBook[i]))              //    if, startswith를 사용하여 문자열이 긴 것에 첫 시작이 이전 인덱스  값이면 false를 리턴 
                 return false;
       
         return true;
