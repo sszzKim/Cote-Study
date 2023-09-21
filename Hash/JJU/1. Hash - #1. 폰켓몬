@@ -5,5 +5,7 @@
 from collections import Counter
 
 def solution(nums):
-    answer = min(len(nums)/2,len(Counter(nums)))
+    answer = min(len(nums)/2,len(Counter(nums))) ## Counter 함수는 리스트 원소의 갯수를 세어서 딕셔너리 형태로 저장 {key.리스트 : value.갯수} 
     return answer
+
+
