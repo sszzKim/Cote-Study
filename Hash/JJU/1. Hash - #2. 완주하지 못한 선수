@@ -1,0 +1,13 @@
+# 1주차 코드리뷰 - Hash
+# 미안해요.. 자바로 못풀겠네요 흙흑ㄹ
+
+# 2. 완주하지 못한 선수
+from collections import Counter
+
+def solution(participant, completion):
+    # counter_participant = Counter(participant)
+    # counter_completion = Counter(completion)
+    # answer = list(set(counter_participant.items()) - set(counter_completion.items()))
+    # return answer[0][0]
+    answer = Counter(participant) - Counter(completion)
+    return list(answer.keys())[0]
