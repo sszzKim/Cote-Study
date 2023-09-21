@@ -1,7 +1,7 @@
 # 1주차 코드리뷰 - Hash
-# 1. 폰켓몬
 # 미안해요.. 자바로 못풀겠네요 흙흑ㄹ
 
+# 1. 폰켓몬
 from collections import Counter
 
 def solution(nums):
