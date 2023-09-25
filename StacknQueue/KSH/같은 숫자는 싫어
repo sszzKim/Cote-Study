@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class Solution {
+    public int[] solution(int []arr) {
+       
+        int num = -1;
+        int [] answer = {};        // answer 의 크기를 아직 정할 수 없음
+        
+        ArrayList<Integer> list = new ArrayList<>();   // arraylist 선언
+        
+        for(int i =0; i<arr.length; i++) {
+            
+            if(arr[i] != num) {               // arr[i] 의 값이 num과 다르다면
+                list.add(arr[i]);               // list에다가 arr[i] 값 추가
+                num = arr[i];                  // num 은 arr[i] 값으로 바뀜  -> 다음번에 if문 왔을 시 연속하는지 보기위함
+            }
+        }
+        
+        answer = new int[list.size()];              // list의 크기가 연속한 같은 수를 제거한 크기이기에 정의
+        for(int i= 0; i<list.size(); i++) {             list에 있는 값들을 answer에 추가
+            answer[i] = list.get(i);                      
+        }
+        
+        return answer;
+    }
+}
