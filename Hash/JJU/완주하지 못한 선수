@@ -1,0 +1,10 @@
+from collections import Counter
+
+def solution(participant, completion):
+    counter_participant = Counter(participant)
+    counter_completion = Counter(completion)
+    answer = list(set(counter_participant.items()) - set(counter_completion.items()))
+    return answer
+    # return answer[0][0]
+    # answer = Counter(participant) - Counter(completion)
+    # return list(answer.keys())[0]
