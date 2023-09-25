@@ -1,0 +1,20 @@
+from collections import Counter
+import numpy as np
+
+def solution(progresses, speeds):
+    develop = list(map(lambda x,y : (100-x)/y, progresses, speeds))
+    # 작업이 끝나기까지 남은 일수를 계산
+
+    for i in range(len(develop)):
+        for j in range(len(develop)):
+            if i < j:
+                if develop[i] > develop[j]:
+                    develop[j] = develop[i]
+            else:
+                continue
+    # 뒤에 잇는 작업을 앞에 있는 작업과 맞춰주는 코드
+    # develop = [5,10,10,10,20,20]
+    
+    develop = np.ceil(develop)
+    answer = list(Counter(develop).values())
+    return answer
