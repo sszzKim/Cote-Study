@@ -1,0 +1,15 @@
+def solution(s):
+    answer = 0
+    for i in list(s):
+        if i == "(":
+            answer+=1
+        elif i == ")" and answer>0:
+            answer-=1
+        else:
+            answer = answer
+            
+    if answer == 0 and len(s)%2==0:
+        return True
+    return False
+
+# s에서 (가 나올 때 추가하고 )가 나올때는 빼는 식으로 해서 answer == answer이 되면 true
