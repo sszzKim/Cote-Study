@@ -1,20 +1,28 @@
-import java.util.HashMap;
+import java.util.*;
 
-class Solution {
-    public int solution(String[][] clothes) {
-        //answer에 곱하여 경우의 수를 구해야 하기에 1
-        int answer = 1;
-        HashMap<String, Integer> hashMap = new HashMap<>();
-        for (String[] clothesList : clothes) {
-            //value에 디폴트 값 1 :  하나 당 뽑을 경우의 수 1
-            hashMap.put(clothesList[1], hashMap.getOrDefault(clothesList[1], 1)+1);
+public class Solution {
+    public int[] solution(int []arr) {
+        int[] answer = {};
+        
+         ArrayList<Integer> arrayList = new ArrayList<>();
+
+       //arr의 원소는 0<=arr<=9 제외한 아무 숫자, num = -1
+        int num =-1;
+       
+       //arr배열의 값과 num의 값을 비교 
+       //같지 않을때 ArrayList에 추가 and num에 대입
+        for(Integer a : arr){
+            if(num != a){
+                arrayList.add(a);
+                num = a;
+            }
+        }
+        //answer을 arrayList사이즈로 변경
+        answer = new int[arrayList.size()];
+       for(int i=0; i<answer.length; i++){
+            answer[i] = arrayList.get(i);
         }
 
-        for(String name : hashMap.keySet()){
-            answer *= hashMap.get(name);
-        }
-        //전부 안뽑을 경우의 수 
-        answer --;
         return answer;
     }
 }
