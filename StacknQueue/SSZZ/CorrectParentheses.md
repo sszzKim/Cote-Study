@@ -17,5 +17,5 @@ class Solution {
         return st.isEmpty();
     }
 }
-
+//split으로 문자열 반복문을 사용 할 경우, 효율성에서 통과하지 못하고, 자바 버전에 따라 문제가 생기기도 하니, charAt()을 사용하자!
 ```
