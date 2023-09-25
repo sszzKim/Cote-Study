@@ -1,0 +1,23 @@
+boolean answer = true;
+
+        Stack<Character> stack = new Stack<>();
+
+//String s를 char로 분리
+        for (char c : s.toCharArray()) {
+
+            if (c == '(') {
+                stack.push(c);
+            }
+            if (c == ')') {
+                if (stack.isEmpty()) {
+                    return false;
+//stack에 값이 있다면 stack 값 : '(' 삭제
+                } else {
+                    stack.pop();
+                }
+            }
+        }
+//stack이 비어있다면 올바른 괄호
+        answer = (stack.isEmpty())? true : false;
+
+        return answer;
