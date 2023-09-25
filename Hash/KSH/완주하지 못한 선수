@@ -1,1 +1,25 @@
-ㅇㅇ
+import java.util.Arrays;
+class Solution {
+    public String solution(String[] participant, String[] completion) {
+        String answer = "";
+        Arrays.sort(participant);               // 두 배열 모두 오름차순 정렬을 하여 인덱스와 값들을 
+        Arrays.sort(completion);              // 최대한 같게 만들기
+
+        if(completion.length == 0) {                // 먼저 , participant (참가자)가 1명일경우, 완주한 선수는 없으므로
+                answer = participant[0];             //  정답은 participant (참가자) 1명의 이름
+            } 
+        
+        for(int i=0; i<completion.length; i++){
+            if(!participant[i].equals(completion[i])) {         // 0부터 completion의 길이 -1 까지 인덱스값을 넣어 값 비교 후 
+                answer = participant[i];                              // 둘이 값이 틀릴경우 paticipant 에만 있는 이름이 되므로, 그것이 정답
+                break;                                                        // 이후 break를 이용해  for문을 바로 빠져나감
+            }
+            
+            if(i == completion.length -1) {  // for문을 통해 completion에 있는 모든 값들을 participant와 비교했지만 다 같았다면
+                answer = participant[i+1];   // 정답은 participant 배열에 마지막 값
+            }
+        }
+      
+        return answer;
+    }
+}

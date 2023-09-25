@@ -1,0 +1,11 @@
+# 1주차 코드리뷰 - Hash
+# 미안해요.. 자바로 못풀겠네요 흙흑ㄹ
+
+# 1. 폰켓몬
+from collections import Counter
+
+def solution(nums):
+    answer = min(len(nums)/2,len(Counter(nums))) ## Counter 함수는 리스트 원소의 갯수를 세어서 딕셔너리 형태로 저장 {key.리스트 : value.갯수} 
+    return answer
+
+
