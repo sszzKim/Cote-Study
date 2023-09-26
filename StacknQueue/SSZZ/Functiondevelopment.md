@@ -16,8 +16,6 @@ public class Functiondevelopment {
         // 진도율이 100%가 되는 날짜 계산
         Queue<Integer> que = new LinkedList<>();
 
-        int[] ss = new int[3];
-
         for(int i=0; i<progresses.length; i++){
             int days_left = 100-progresses[i];
             if (0 != days_left%speeds[i]){ //나머지가 0이 아니면 하루를 더함
