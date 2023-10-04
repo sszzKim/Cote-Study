@@ -40,4 +40,5 @@ public class MoreSpicy {
     }
 }
 ```
+![](/images/MoreSpicy1.JPG)
 
