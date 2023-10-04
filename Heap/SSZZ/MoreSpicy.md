@@ -1,4 +1,6 @@
 ```
+package com.test.heap;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -9,6 +11,8 @@ public class MoreSpicy {
         List<Integer> list = Arrays.stream(scoville).boxed().collect(Collectors.toList());
         //Int배열을 Integer List로 변환
         //boxed() primitive type -> 래퍼 클래스로 변경
+
+        long start = System.currentTimeMillis(); //TIME CHECK
 
         while(true){
             Collections.sort(list);
@@ -21,12 +25,19 @@ public class MoreSpicy {
             cnt++;
         }
 
+        long end = System.currentTimeMillis(); //TIME CHECK
+        System.out.println("TIME CHECK: "+(end - start)/1000.0); //TIME CHECK
+
         int answer = cnt;
         return answer;
     }
     public static void main(String[] args) {
-        System.out.println(solution(new int[]{0,1,1,2,4,3,1},7));
+        int[] arr = new int[100000];
+        for(int i=0; i<100000; i++){
+            arr[i]++;
+        }
+        System.out.println(solution(arr,100000));
     }
 }
-
 ```
+
