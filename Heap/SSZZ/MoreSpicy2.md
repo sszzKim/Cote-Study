@@ -19,3 +19,4 @@ static public int solution(int[] scoville, int K) {
         return answer;
     }
 ```
+![](/images/MoreSpicy2.JPG)
