@@ -1,0 +1,22 @@
+import java.util.Arrays;
+
+class Solution {
+    public int[] solution(int[] array, int[][] commands) {
+        int[] answer = {};
+            answer = new int[commands.length];
+            for(int i=0; i<commands.length; i++){
+                int [] sort = new int[commands[i][1]-commands[i][0]+1];
+                int k = 0;
+                
+                for(int j=commands[i][0]; j<=commands[i][1]; j++){
+                    sort[k++] = array[j-1]; 
+                }
+                Arrays.sort(sort);
+                
+                //System.out.println(sort.length);
+                answer [i] = sort[commands[i][2]-1];
+            }
+       
+            return answer;
+    }
+}
