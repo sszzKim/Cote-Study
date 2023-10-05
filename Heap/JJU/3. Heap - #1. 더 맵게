@@ -1,0 +1,31 @@
+import heapq
+
+def solution(scoville, K):
+    i=0
+    heapq.heapify(scoville)
+    # heap.heapify heap으로 만들어주는 용도
+    
+    while(len(scoville)>=2):
+    # scoville가 2보다 작으면 두 원소를 비교할 수 없어서 heap이 실행되지 않음 
+        
+        item_1 = heapq.heappop(scoville)
+        if item_1 >= K:
+            break
+        # 첫번째 아이템이 K보다 크면 가장 작은 min한 원소가 이미 K보다 크기 때문에 break 
+        
+        else:
+            item_2 = heapq.heappop(scoville)*2
+            item = item_1+item_2
+            heapq.heappush(scoville, item)
+        i+=1
+        # 첫번째로 작은 아이템 + 두번째로 작은 아이템 * 2해서
+        # heapq.heappush 리스트에 아이템 추가
+        # [1,2,3,9,10,12] -> [3,5,9,10,12]
+    
+    if(scoville[0]<K):
+        return -1
+    # 하나 있는데 K보다 작은 경우 -1
+    
+    else:
+        answer = i
+    return answer
