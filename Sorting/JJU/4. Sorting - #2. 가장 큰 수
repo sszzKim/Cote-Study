@@ -1,0 +1,13 @@
+def solution(numbers):
+    answer = ''
+    numbers = list(map(str,numbers))
+    numbers.sort(key = lambda x : x*3 , reverse = True)
+    # 666, 101010, 222를 비교
+    # 333, 3030, 343434, 555, 999
+    # 아스키 코드를 비교
+    # 3 31 332를 비교한다고 한다면
+    # 333 313 332
+    
+    for i in numbers:
+        answer += i
+    return str(int(answer))
