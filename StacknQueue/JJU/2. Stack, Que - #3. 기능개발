@@ -3,8 +3,10 @@ import numpy as np
 
 def solution(progresses, speeds):
     develop = list(map(lambda x,y : (100-x)/y, progresses, speeds))
-    # 작업이 끝나기까지 남은 일수를 계산
-
+    # 작업이 끝나기까지 남은 일수를 계산 100-progresses/speed
+    # [7,2.333333333333333,9]
+    # [5,10,1,1,20,1]
+    
     for i in range(len(develop)):
         for j in range(len(develop)):
             if i < j:
@@ -12,9 +14,15 @@ def solution(progresses, speeds):
                     develop[j] = develop[i]
             else:
                 continue
-    # 뒤에 잇는 작업을 앞에 있는 작업과 맞춰주는 코드
+    # 2중 for 문
+    # develop 리스트에서 인덱스 j > i 의 원소가 i의 원소보다 작다면 같도록 설정  
+    # 뒤에 잇는 작업을 앞에 있는 작업dmf 맞춰주는(기다려주는) 코드
+    # [7,7,9]
     # develop = [5,10,10,10,20,20]
     
     develop = np.ceil(develop)
     answer = list(Counter(develop).values())
+    # {"7.0":2,"9.0":1}
+    # {"5.0":1,"10.0":3,"20.0":2}
+    
     return answer
