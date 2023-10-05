@@ -19,6 +19,7 @@ public class BiggestNumber {
                 return (b+a).compareTo(a+b);
             }
         });
+        // 정렬에서, x.compareTo(y)의 리턴값이 음수라면, x가 y보다 앞에 온다는 의미가 됩니다. 양수라면 x가 y보다 뒤에 온다는 것이고 0이면, 어떤 정렬이냐에 따라서 앞에 오는지, 뒤에 오는지가 달라집니다.
         
         // 배열에 0 만 있는 경우(정렬배열 맨처음이 0) "0" 리턴
         if(number[0].equals("0")) return "0";
