@@ -1,0 +1,41 @@
+from collections import deque
+
+def solution(bridge_length, weight, truck_weights):
+    bridge = deque(0 for _ in range(bridge_length))
+    # [0,0]
+    total_weight = 0
+    step = 0
+    truck_weights.reverse()
+    # truck_weights 거꾸로 [6,5,4,7]
+
+    while truck_weights:
+    # truck_weights 원소가 남아있을 때
+    
+        total_weight -= bridge.popleft()
+        # 왼쪽의 원소를 빼주기
+        
+        if total_weight + truck_weights[-1] > weight:
+            bridge.append(0)
+        # 전체 무게와 첫번째 원소 [6,5,4,7] 중 7을 더했을 때 
+        # 다리에 있던 트럭과 다리를 지날 트럭의 무게가 
+        # 다리가 감당할 수 있는 무게 보다 크다면
+        # 다리로 지나가면 안돼요.
+        # total_weight([4, 5]) + 6 > 10
+        
+        else:
+            truck = truck_weights.pop()
+            bridge.append(truck)
+            total_weight += truck
+        # 다리에 있던 트럭과 다리를 지날 트럭의 무게가 
+        # 다리가 감당할 수 있는 무게 보다 같거나 작다면
+        # 다리로 지나가세요.
+        # total_weight([0, 4]) + 5 < 9
+        # 전체무게에 트럭무게 추가
+        
+        step += 1
+        # 스텝추가
+
+    step += bridge_length
+    # 마지막 트럭 지나가야 함.
+
+    return step
