@@ -30,8 +30,7 @@ public class Process {
                 list.add(tmp);
             }
             //location 움직이기
-            //location = (location == 0) ? list.size()-1:location--;
-            location = (location == 0) ? list.size()-1:location-1;
+            location = (location == 0) ? list.size()-1:location--;
         }
         return answer;
     }
