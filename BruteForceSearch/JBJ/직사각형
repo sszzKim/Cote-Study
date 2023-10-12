@@ -1,0 +1,28 @@
+class Solution {
+    public int solution(int[][] sizes) {
+        int answer = 0;
+        int widthmax=0;
+        int lengthmax=0;
+        int num=0;
+
+        for(int i =0; i<sizes.length; i++){
+            if(sizes[i][0]<sizes[i][1]){
+                num = sizes[i][0];
+                sizes[i][0] = sizes[i][1];
+                sizes[i][1] = num;
+            }
+        }
+        for(int i =0; i<sizes.length; i++){
+            if(widthmax<sizes[i][0]){
+                widthmax =sizes[i][0];
+            }
+        }
+        for(int i =0; i<sizes.length; i++){
+            if(lengthmax<sizes[i][1]){
+                lengthmax=sizes[i][1];
+            }
+        }
+
+        return widthmax*lengthmax;
+    }
+}
