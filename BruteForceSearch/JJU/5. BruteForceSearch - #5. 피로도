@@ -1,0 +1,23 @@
+def explore(k, dungeons):
+    answer = 0
+    for i, j in dungeons:
+        if k >= i:
+            if k - j < 0:
+                break
+            else:
+                k -= j
+            answer +=1
+    return answer
+    # 80 >= 80 80 - 20 = 60
+    # 60 >= 30 60 - 10 = 50
+    # 50 >= 40 50 - 40 = 10
+    
+    # 80 >= 80 80 - 20 = 60
+    # 60 >= 40 60 - 40 = 20
+    # 20 < 30 break
+
+from itertools import permutations
+    
+def solution(k, dungeons):
+    return max([explore(k,i) for i in permutations(dungeons, len(dungeons))])
+    # 모든 순열에 대해서 실행한 후 퇴댓값 계산
