@@ -1,0 +1,33 @@
+def solution(answers):
+    # 규칙을 리스트 형태로 만들기
+    math_1 = [1, 2, 3, 4, 5]
+    math_2 = [2, 1, 2, 3, 2, 4, 2 ,5]
+    math_3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
+
+    #수포자를 리스트 형태로 만들기
+    math_1_answer = [math_1[i%5] for i in range(len(answers))]
+    math_2_answer = [math_2[i%8] for i in range(len(answers))]
+    math_3_answer = [math_3[i%10] for i in range(len(answers))]
+    # 8문제면
+    # 1번 : [1,2,3,4,5,1,2,3]
+    # 2번 : [2,1,2,3,2,4,2,5]
+    # 3번 : [3,3,1,1,2,2,4,4]
+    # 정답 : [3,2,1,1,5,2,2,5]
+
+    # answers와 비교하기
+    # 모든 원소가 answer과 같은지 비교
+    # i번째 찍은 답이 i번째 답과 같다면 True를 반환, 틀리면 False를 반환
+    compare_1 = [answers[i] == math_1_answer[i] for i in range(len(answers))]
+    compare_2 = [answers[i] == math_2_answer[i] for i in range(len(answers))]
+    compare_3 = [answers[i] == math_3_answer[i] for i in range(len(answers))]
+    compare_123 = (1, compare_1.count(True)), (2, compare_2.count(True)), (3, compare_3.count(True))
+    # 3번의 True는 4개
+    # compare_123 = ((1,3), (2,2), (3,4))
+    
+    # max 값 추가해주기
+    max_value = max(math[1] for math in compare_123)
+    # max([3,2,4]) = 4
+    answer=[]
+    [answer.append(i[0]) for i in compare_123 if i[1] == max_value]
+    #(x,y)[1] == 4의 x를 리스트로 만들기
+    return answer
