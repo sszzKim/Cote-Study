@@ -1,0 +1,24 @@
+from itertools import combinations, permutations
+
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5 + 1)):
+        if n%i == 0:
+            return False
+    return True
+# 소수 함수 정의
+# n의 제곱근보다 작은 모든 숫자에 대해서 1과 자기자신 n으로만 나눠진다면 소수
+
+def solution(numbers):
+
+    number = list(numbers)
+    # [1, 7], [0, 1, 1]
+    c_n = [list(set(list(combinations(numbers,i))))[j] for i in range(2, len(numbers)+1) for j in range(len(set(list(combinations(numbers,i)))))]
+    p_n = [list(permutations(c_n[i]))[j] for i in range(len(c_n)) for j in range(len(list(permutations(c_n[i]))))]
+    all_number_str = list(set(["".join(number) for number in p_n]))
+    all_number_str = all_number_str + number
+    all_number_int = [int(i) for i in all_number_str]
+    sorting_num = sorted(list(set(all_number_int)))
+    answer = [is_prime(i) for i in sorting_num].count(True)
+    return answer
