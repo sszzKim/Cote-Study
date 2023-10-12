@@ -1,0 +1,14 @@
+import math 
+
+def solution(brown, yellow):
+    # (x+2)*(y+2)-xy = brown
+    # 2x+2y+4= brown
+    # xy = yellow
+    # x+y = (brown-4)/2 = brown/2-2
+    # 근의공식
+    b = brown/2-2
+    c = yellow
+    x = b/2+math.sqrt(b**2/4-c)
+    y = c/x
+    answer = [x+2,y+2]
+    return answer
