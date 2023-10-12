@@ -1,0 +1,16 @@
+def solution(sizes):
+    left = []
+    right = []
+    for i,j in sizes:
+        if i<=j:
+            left.append(i)
+            right.append(j)
+        # 작은거 모음
+        else:
+            left.append(j)
+            right.append(i)
+        # 큰거 모음
+    answer = max(left)*max(right)
+    return answer
+    
+    # return max(max(x) for x in sizes) * max(min(x) for x in sizes)
