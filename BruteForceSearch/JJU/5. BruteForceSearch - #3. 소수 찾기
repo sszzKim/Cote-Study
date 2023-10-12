@@ -11,9 +11,8 @@ def is_prime(n):
 # n의 제곱근보다 작은 모든 숫자에 대해서 1과 자기자신 n으로만 나눠진다면 소수
 
 def solution(numbers):
-
-    number = list(numbers)
     # [1, 7], [0, 1, 1]
+    number = list(numbers)
     c_n = [list(set(list(combinations(numbers,i))))[j] for i in range(2, len(numbers)+1) for j in range(len(set(list(combinations(numbers,i)))))]
     p_n = [list(permutations(c_n[i]))[j] for i in range(len(c_n)) for j in range(len(list(permutations(c_n[i]))))]
     all_number_str = list(set(["".join(number) for number in p_n]))
@@ -21,4 +20,19 @@ def solution(numbers):
     all_number_int = [int(i) for i in all_number_str]
     sorting_num = sorted(list(set(all_number_int)))
     answer = [is_prime(i) for i in sorting_num].count(True)
+    
+    # list(combinations(numbers,2)) : [["0","1"],["0","1"],["1","1"]]
+    # list(set(list(combinations(numbers,2)))) = [["0","1"],["1","1"]] 2개
+    # list(set(list(combinations(numbers,3)))) = [["0","1","1"]] 1개
+    # [list(set(list(combinations(numbers,i))))[j] for i in range(2, len(numbers)+1) for j in range(len(set(list(combinations(numbers,i)))))] = [["1","1"],["0","1"],["0","1","1"]]
+    
+    # list(permutations(c_n[0])) = [["1","1"],["1","1"]]
+    # list(permutations(c_n[1])) = [["0","1"],["1","0"]]
+    # list(permutations(c_n[2])) = [["0","1","1"],["0","1","1"],["1","0","1"],["1","1","0"],["1","0","1"],["1","1","0"]]
+    
+    # list(set(["".join(number) for number in p_n])) = ["01","10","101","011","11","110"]
+    # all_number_str + number = ["101","10","01","11","110","011","0","1","1"]
+    # [int(i) for i in all_number_str] = [10,11,1,101,110,11,0,1,1]
+    # sorted(list(set(all_number_int))) = [0,1,10,11,101,110]
+    
     return answer
