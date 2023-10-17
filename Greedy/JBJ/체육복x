@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+
+class Solution {
+    public int solution(int n, int[] lost, int[] reserve) {
+        int answer = 0;
+        int a = n - lost.length;//체육복을 가지고 있는 사람의 수
+        ArrayList<Integer> res = new ArrayList<>();
+        ArrayList<Integer> los = new ArrayList<>();
+        
+        for(int r : reserve){
+			res.add(r);
+		}
+		for(int l : lost){
+			los.add(l);
+		}
+		for(int i=0; i<los.size(); i++){
+			for(int j=0; j<res.size(); j++){
+				if(los.get(i) == res.get(j)){
+					a++;
+					los.remove(i);
+					res.remove(j);
+					break;
+				}
+			}
+		}
+		
+		for(int i=0; i<los.size(); i++){
+			for(int j=0; j<res.size(); j++){
+				if(los.get(i) == res.get(j)+1 || los.get(i)== res.get(j)-1){
+					a++;
+					res.set(j,-1);
+					break;
+				}
+			}
+		}
+        
+		answer = a;
+
+		return answer;
+    }
+}
