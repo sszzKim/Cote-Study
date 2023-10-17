@@ -3,38 +3,38 @@ class Solution {
         int answer = 0;
         int[] cnt = new int[n];
         for(int i=0; i<n; i++) {
-            cnt[i] = 1;
+            cnt[i] = 1;                                      // 일단 모든 사람이 체육복있다고 가정
         }
         
         for(int i=0; i<lost.length; i++) {
-            cnt[lost[i]-1]--;
+            cnt[lost[i]-1]--;       // 배열은 0부터이므로 첫번째사람은 0번째 사람으로 생각 , lost에 해당하는 인덱스 값 1 감소
         }
         
         for(int i=0; i<reserve.length; i++) {
-            cnt[reserve[i]-1]++;
+            cnt[reserve[i]-1]++;        // reserve에 해당하는 값이 있으면 1증가 , 여분이 있으므로
         }
         
         for(int i=0; i<n; i++) {
-            if(cnt[i] ==0) {
+            if(cnt[i] ==0) {               // 만약 체육복이 없다면
                 
-                if(i>0 && cnt[i-1]>1) {
-                    answer++;
-                    cnt[i-1]--;
-                    continue;
+                if(i>0 && cnt[i-1]>1) {       // i가 0보다 크고 , 그 전에 값이 1보다 크면 줄 수 있으므로
+                    answer++;                  // answer 값 증가
+                    cnt[i-1]--;                    // 전에 값이 줬으므로 1감소
+                    continue;                     // 다음 for문 실행  (i 값 증가시켜서)
                 }
-                if(i<n-1 && cnt[i+1] >1) {
-                    answer++;
-                    cnt[i+1]--;
-                    continue;
+                if(i<n-1 && cnt[i+1] >1) {         // i가 최대값 전까지 가고 , i값 보다 큰 뒤에 값이 1보다 크면 줄 수 있으므로
+                    answer++;                          // answer 값 증가
+                    cnt[i+1]--;                         // 뒤에 값이 줬으므로 1감소
+                    continue;                         // 다음 for문 실행 (i 값 증가시켜서)
                 }
             }
             else {
-                    answer++;
+                    answer++;                      // 0이 아닌경우는 값이 증가
                 }
            
         }
         
         
-        return answer;
+        return answer;               
     }
 }
