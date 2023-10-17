@@ -1,0 +1,36 @@
+def solution(n, lost_, reserve_):
+    
+    # sorting 작업
+    reserve = sorted([x for x in reserve_ if x not in lost_])
+    lost = sorted([x for x in lost_ if x not in reserve_])
+    
+
+    reserve_o = [[reserve[i]-1,reserve[i]+1] for i in range(len(reserve))]
+    # reserve_p[i]-1, reserve[i]+1 : i학생이 체육복을 빌려줄 수 있는 양 옆의 학생 
+    # [[0,2],[2,4],[4,6]
+    # [[2,4]]
+    
+    j = 0
+    lost_c = lost.copy()
+    length = len(lost)
+    while j < length: # 도난당한 학생보다 작으면 true
+        if [number for number in reserve_o if lost_c[j] in number] != []: 
+            # [number for number in reserve_o if lost_c[0] in number] = [[0,2],[2,4]] / 1,3번이 2번학생에게 빌려줄 수 있음
+            # [number for number in reserve_o if lost_c[1] in number] = [[2,4],[4,6]] / 3,5번 학생이 4번학생에게 빌려줄 수 있음
+            # [number for number in reserve_o] reserve_o에서 하나씩 뽑아내겠다.
+            # if lost_c[j] in number : 빌려줄 수 있는 학생이 도난당한 학생에게 줄 수 있다면 != []:
+            
+            reserve_o.remove([number for number in reserve_o if lost_c[j] in number][0])
+            # reserve_o.remove([number for number in reserve_o if lost_c[j] in number][0])
+            # 빌려줄 수 있는 첫 번째 학생을 리스트에서 제거한다.
+            # [number for number in reserve_o if lost_c[0] in number][0] = [0,2] 즉, 1번학생
+            # [number for number in reserve_o if lost_c[1] in number][0] = [2.4] 즉, 3번학생
+
+            lost.remove(lost_c[j])
+            # lost에서도 삭제
+        
+        j = j+1
+        # 다음 학생
+        
+    answer = n - len(lost)
+    return answer
