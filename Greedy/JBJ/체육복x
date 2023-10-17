@@ -7,6 +7,9 @@ class Solution {
         ArrayList<Integer> res = new ArrayList<>();
         ArrayList<Integer> los = new ArrayList<>();
         
+        Arrays.sort(reserve);        
+        Arrays.sort(lost);  
+        
         for(int r : reserve){
 			res.add(r);
 		}
@@ -17,8 +20,8 @@ class Solution {
 			for(int j=0; j<res.size(); j++){
 				if(los.get(i) == res.get(j)){
 					a++;
-					los.remove(i);
-					res.remove(j);
+					los.set(i,-1);
+					res.set(j,-1);
 					break;
 				}
 			}
@@ -26,7 +29,7 @@ class Solution {
 		
 		for(int i=0; i<los.size(); i++){
 			for(int j=0; j<res.size(); j++){
-				if(los.get(i) == res.get(j)+1 || los.get(i)== res.get(j)-1){
+				if(los.get(i) == res.get(j)-1 || los.get(i)== res.get(j)+1){
 					a++;
 					res.set(j,-1);
 					break;
