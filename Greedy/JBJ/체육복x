@@ -21,7 +21,9 @@ class Solution {
 				if(los.get(i) == res.get(j)){
 					a++;
 					los.set(i,-1);
+					//los.remove(i);
 					res.set(j,-1);
+					//res.remove(j);
 					break;
 				}
 			}
@@ -32,6 +34,7 @@ class Solution {
 				if(los.get(i) == res.get(j)-1 || los.get(i)== res.get(j)+1){
 					a++;
 					res.set(j,-1);
+					//res.remove(j);
 					break;
 				}
 			}
