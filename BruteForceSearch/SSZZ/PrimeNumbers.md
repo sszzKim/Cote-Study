@@ -1,12 +1,5 @@
 ```
-package com.test.bruteSearch;
-
-import java.util.HashSet;
-import java.util.Iterator;
-
-
-public class PrimeNumbers {
-    /*
+/*
      * 주어진 일의자리 숫자들로 조합할 수 있는 수 중에 소수의 개수를 리턴
      * 길이는 1이상 7이하
      */
@@ -27,6 +20,9 @@ public class PrimeNumbers {
         numberSet.remove(0);
         numberSet.remove(1);
 
+        if(numberSet.contains(2)) { numberSet.remove(2); cnt++; }
+        if(numberSet.contains(3)) { numberSet.remove(3); cnt++; }
+
         Iterator it = numberSet.iterator();
 
         while(it.hasNext()){
@@ -42,10 +38,5 @@ public class PrimeNumbers {
         int answer = cnt;
         return answer;
     }
-    public static void main(String[] args) {
-        PrimeNumbers ob = new PrimeNumbers();
-        System.out.println("답: "+ob.solution("011"));
-    }
-}
 
 ```
