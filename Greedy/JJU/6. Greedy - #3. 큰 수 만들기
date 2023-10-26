@@ -1,0 +1,39 @@
+#9999888877771111
+#999988887777
+#99997881111
+#991
+#91273
+# 하나를 뺐을 때 아스키 코드를 비교했을 때 커지기만 해도 k-=1
+from collections import deque
+def solution(number,k):
+    answer = ""
+    maxnum = max(number)
+    while(k!=0):
+        
+        # if number[0] == maxnum:
+        #     answer += number[0]
+        #     number = number[1:]
+        for i in range(len(number)):
+            # com = number[:i]+number[-(len(number)-i-1):]
+            # com = number[:i] + number[i+1:]
+            # com = number[:i] + number[i+1]
+            # com = number[i+1]
+            # element = num.pop(i)
+            # com = ''.join(num)
+            if i == len(number)-1:
+                k = 0
+                number = number[:-1]
+                break
+            elif number[i+1] > number[i]:
+                # print(number, answer)
+                # number = com
+                number = number[:i] + number[i+1:]
+                k -=1
+                break
+            # else:
+            #     num.insert(i,element)
+    answer += number
+    # answer = number[:0]
+    #answer = number[:2]+number[-(len(number)-2-1):]
+    #answer = number[:3]+number[4:]
+    return answer
